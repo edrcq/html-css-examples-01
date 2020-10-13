@@ -1,0 +1,123 @@
+.container {
+	max-width: 800px;
+	width: 95%;
+	margin: 0 auto;
+}
+
+.tabs {
+	display: flex;
+	flex-direction: column;
+}
+
+.tabs nav {
+	margin-top: 3rem;
+	margin-bottom: 2rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.tabs nav a {
+	display: block;
+	color: white;
+	cursor: pointer;
+	width: 100%;
+	text-align: center;
+	background-color: brown;
+	transition: background-color 0.8s;
+	align-items: center;
+	padding: 1rem 0;
+}
+
+.tabs nav a:hover {
+	background-color: springgreen;
+}
+
+.tabs nav a:active {
+	background-color: green;
+}
+
+.tabs-content {
+	display: flex;
+	flex-direction: row;
+}
+
+.tabs-content .tab {
+	position: absolute;
+	top: -100rem;
+	background-color: white;
+	transition: display 0s, background-color 1s, transform 1.2s;
+	transform: scale(0);
+}
+
+.tabs-content .tab:target {
+	position: relative;
+	top: auto;
+	background-color: white;
+	border: 3px black dotted;
+	padding: 1rem 1rem;
+	width: 100%;
+	min-height: 150px;
+	max-height: 800px;
+	overflow-y: scroll;
+	transform: scale(1);
+}
+
+.tabs-content .tab:hover {
+	/* background-color: springgreen; */
+}
+
+/* Some Rows and Cols stuff */
+.row {
+	display: flex;
+	flex-direction: row;
+}
+
+.col {
+	display: flex;
+	flex-direction: column;
+	width: auto;
+}
+
+.col div {
+	width: 40%;
+}
+
+/* Start Real Buttons design */
+
+.btn {
+	padding: 1rem 0.8rem;
+	border: none;
+	border-radius: 0.2rem;
+	cursor: pointer;
+	background-color: rgb(200, 200, 200);
+	transition: filter 0.7s, background-color 0.8s, transform 0.5s linear;
+}
+
+.btn:hover {
+	filter: drop-shadow(0 0 0.5rem rgb(0, 0, 0));
+}
+
+.btn-success {
+	background-color: rgb(39, 187, 39);
+}
+
+.btn-success:hover {
+	filter: drop-shadow(0 0 0.5rem rgb(39, 187, 39));
+	background-color: rgb(2, 207, 2);
+}
+
+.btn:active {
+	transform: scale(0.5);
+}
+
+/* Some position and margins utility */
+.mx-3 {
+	margin-left: 1.5rem;
+	margin-right: 1.5rem;
+}
+
+.my-3 {
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+}
