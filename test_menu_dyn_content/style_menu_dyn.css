@@ -4,6 +4,40 @@
 	margin: 0 auto;
 }
 
+/* Quelques classes utilitaires */
+
+.d-block {
+	display: block;
+}
+
+.d-in-block {
+	display: inline-block;
+}
+
+.flex {
+	display: flex;
+}
+
+.f-dir-row {
+	flex-direction: row;
+}
+
+.f-dir-col {
+	flex-direction: column;
+}
+
+/* End utils */
+
+/* Les classes importantes, le coeur de la page */
+
+.tab-btn {
+	display: block;
+	/* Voir box-sizing ici: https://developer.mozilla.org/fr/docs/Web/CSS/box-sizing */
+	box-sizing: border-box;
+	min-width: 110px;
+	margin-right: 1rem;
+}
+
 .tabs {
 	display: flex;
 	flex-direction: row;
@@ -42,6 +76,8 @@
 .tabs-content {
 	display: flex;
 	flex-direction: row;
+	align-items: stretch;
+	flex: 1 1 10px;
 }
 
 .tabs-content .tab {
@@ -55,17 +91,24 @@
 
 .tabs-content .tab:target {
 	position: relative;
+	display: flex;
 	top: auto;
 	background-color: white;
-	border: 3px black dotted;
 	padding: 1rem 1rem;
 	width: 100%;
-	min-height: 150px;
+	min-height: 200px;
 	max-height: 800px;
 	overflow-y: scroll;
 	transform: scale(1);
-	animation: 1s linear 0s infinite running wilddots;
-	transition: border 1s;
+	/* animation: 5s linear 0s infinite running wildshady; */
+	border-width: 3px;
+	border-style: solid;
+  	border-image:
+    linear-gradient(
+      to bottom,
+      green,
+      rgba(0, 0, 0, 0)
+	) 1 100%;
 }
 
 .tabs-content .tab:hover {
@@ -96,7 +139,7 @@
 	border-radius: 0.2rem;
 	cursor: pointer;
 	background-color: rgb(200, 200, 200);
-	transition: filter 0.7s, background-color 0.8s, transform 0.5s linear;
+	transition: filter 0.7s, background-color 0.8s, transform 0.1s linear;
 }
 
 .btn:hover {
@@ -112,8 +155,17 @@
 	background-color: rgb(2, 207, 2);
 }
 
+.btn-warning {
+	background-color: rgb(255, 151, 31);
+}
+
+.btn-warning:hover {
+	filter: drop-shadow(0 0 0.5rem rgb(187, 61, 39));
+	background-color: rgb(255, 221, 29);
+}
+
 .btn:active {
-	transform: scale(0.5);
+	animation: infinite-spinning 2s linear 0s infinite forwards;
 }
 
 /* Some position and margins utility */
@@ -127,6 +179,10 @@
 	margin-bottom: 1.5rem;
 }
 
+
+/* Pour mieux comprendre les animations:
+ * https://css-tricks.com/snippets/css/keyframe-animation-syntax/
+ */
 
 @keyframes bgcolorall {
 	from {
@@ -169,5 +225,60 @@
 
 	to {
 		border: 3px black dotted;
+	}
+}
+
+@keyframes wildshady {
+	from {
+		filter: drop-shadow(0 0 0.75rem crimson);
+	}
+
+	10% {
+		filter: drop-shadow(0 0 0.75rem rgb(220, 20, 160));
+	}
+
+	20% {
+		filter: drop-shadow(0 0 0.75rem rgb(180, 20, 220));
+	}
+
+	30% {
+		filter: drop-shadow(0 0 0.75rem rgb(33, 20, 220));
+	}
+
+	40% {
+		filter: drop-shadow(0 0 0.75rem rgb(20, 147, 220));
+	}
+
+	50% {
+		filter: drop-shadow(0 0 0.75rem rgb(20, 220, 193));
+	}
+
+	60% {
+		filter: drop-shadow(0 0 0.75rem rgb(20, 220, 103));
+	}
+
+	70% {
+		filter: drop-shadow(0 0 0.75rem rgb(37, 220, 20));
+	}
+
+	80% {
+		filter: drop-shadow(0 0 0.75rem rgb(150, 220, 20));
+	}
+
+	90% {
+		filter: drop-shadow(0 0 0.75rem rgb(207, 220, 20));
+	}
+
+	to {
+		filter: drop-shadow(0 0 0.75rem rgb(220, 67, 20));
+	}
+}
+
+@keyframes infinite-spinning {
+	from {
+	  transform: rotate(0deg);
+	}
+	to {
+	  transform: rotate(360deg);
 	}
 }
